@@ -1,3 +1,18 @@
+<script setup>
+import { getCategoryAPI } from "@/apis/layout"
+import { onMounted, ref } from "vue";
+
+const categoryList = ref([])
+const getCategory = async () => {
+  const res = await getCategoryAPI()
+  console.log(res.data.result);
+  categoryList.value = res.data.result
+}
+onMounted(() => {
+  getCategory()
+})
+</script>
+
 <template>
   <header class="app-header">
     <div class="container">
@@ -5,100 +20,92 @@
         <RouterLink to="/">小兔子</RouterLink>
       </h1>
       <ul class="app-header-nav">
-        <li class="home">
-          <RouterLink active-class="active" to="/">首页</RouterLink>
+        <li class="home" v-for="item in categoryList" :key="item.id">
+          <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
-        <li>
-          <RouterLink to="/">居家</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">美食</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">服饰</RouterLink>
-        </li>
+
       </ul>
       <div class="search">
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜一搜">
       </div>
       <!-- 头部购物车 -->
-       <!-- <HeaderCart></HeaderCart> -->
+      <!-- <HeaderCart></HeaderCart> -->
     </div>
   </header>
 </template>
 
 <style scoped lang="scss">
-.app-header{
+.app-header {
   background: #fff;
 
-  .container{
+  .container {
     display: flex;
     align-items: center;
   }
 
-  .logo{
+  .logo {
     width: 200px;
 
-    a{
+    a {
       display: block;
       height: 132px;
       width: 100%;
       text-indent: -9999px;
-      background: url('@/assets/images/logo.png') no-repeat 18px / contain;
+      background: url('@/assets/images/logo.png') no-repeat 0px / contain;
     }
   }
 
-  .app-header-nav{
-      width: 820px;
-      display: flex;
-      padding-left: 40px;
-      position: relative;
-      z-index: 998;
+  .app-header-nav {
+    width: 820px;
+    display: flex;
+    padding-left: 40px;
+    position: relative;
+    z-index: 998;
 
-      li{
-        margin-right: 40px;
-        width: 38px;
-        text-align: center;
+    li {
+      margin-right: 40px;
+      width: 38px;
+      text-align: center;
 
-        a{
-          font-size: 16px;
-          line-height: 32px;
-          height: 32px;
-          display: inline-block;
+      a {
+        font-size: 16px;
+        line-height: 32px;
+        height: 32px;
+        display: inline-block;
 
-          &:hover{
-            color: $xtxColor;
-            border-bottom: 1px solid $xtxColor;
-          }
-        }
-
-        .active{
+        &:hover {
           color: $xtxColor;
           border-bottom: 1px solid $xtxColor;
         }
       }
+
+      .active {
+        color: $xtxColor;
+        border-bottom: 1px solid $xtxColor;
+      }
+    }
   }
 
-  .search{
+  .search {
     width: 170px;
     height: 32px;
     position: relative;
     border-bottom: 1px solid #e7e7e7;
 
-    .icon-search{
+    .icon-search {
       font-size: 18px;
       margin-left: 5px;
     }
 
-    input{
+    input {
       width: 140px;
       padding-left: 5px;
       color: #666;
     }
   }
 
-  .cart{
+  .cart {
     width: 50px;
 
     .curr {
