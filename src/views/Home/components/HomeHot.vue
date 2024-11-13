@@ -8,7 +8,6 @@ const getHots = async () => {
   const res = await getHotAPI()
   hotsList.value = res.data.result
 }
-
 getHots()
 </script>
 
