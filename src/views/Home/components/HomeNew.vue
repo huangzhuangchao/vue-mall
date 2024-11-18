@@ -7,8 +7,6 @@ const newsList = ref([])
 const getNews = async () => {
   const res = await getNewAPI()
   newsList.value = res.data.result
-  console.log(res.data.result);
-
 }
 
 onMounted(() => getNews())

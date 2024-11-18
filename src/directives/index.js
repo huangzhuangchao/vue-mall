@@ -1,29 +1,25 @@
 import { useIntersectionObserver } from '@vueuse/core'
 
-
-//定义懒加载插件
+//自定义懒加载插件
 export const lazyPlugin = {
   install(app) {
-    //懒加载指令
     app.directive('img-lazy', {
+      //el:指令绑定的那个元素 img
+      //binding: binding.value 代表等于号右边绑定的表达式的值  图片url
       mounted(el, binding) {
-        // el:指令绑定的那个元素 img
-        // binding: binding.value 指令等于号后面绑定的表达式的值 图片url
-        // console.log(el, binding.value);
-
-        const {stop} = useIntersectionObserver(
+        const { stop } = useIntersectionObserver(
           el,
-          ([{ isIntersecting }], observerElement) => {
+          ([{ isIntersecting }]) => {
+            //判断是否进入视口区域
             if (isIntersecting) {
-
-              //进入视口区域
               el.src = binding.value
-              //第一次赋值后就取消监听
               stop()
             }
-          },
+          }
         )
       }
-    })
+    }
+    )
+
   }
 }

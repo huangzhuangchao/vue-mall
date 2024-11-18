@@ -3,12 +3,10 @@ import { useScroll } from '@vueuse/core'
 import { useCategoryStore } from '@/stores/categoryStore';
 
 const categoryStore = useCategoryStore()
-
 const { y } = useScroll(window)
 </script>
 
 <template>
-
   <div class="app-header-sticky" :class="{ show: y > 78 }">
     <div class="container">
       <RouterLink class="logo" to="/" />
@@ -24,8 +22,9 @@ const { y } = useScroll(window)
       </div>
     </div>
   </div>
-
 </template>
+
+
 <style scoped lang='scss'>
 .app-header-sticky {
   width: 100%;

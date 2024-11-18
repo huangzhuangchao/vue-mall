@@ -1,16 +1,15 @@
 <script setup>
 
-// defineProps({
-//   title: {
-//     type: String,
-//     default: ''
-//   },
-//   subTitle: {
-//     type: String,
-//     default: ''
-//   }
-// })
-const props = defineProps(["title", "subTitle"])
+defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
+  subTitle: {
+    type: String,
+    default: ''
+  }
+})
 </script>
 
 
@@ -20,7 +19,7 @@ const props = defineProps(["title", "subTitle"])
       <div class="head">
         <!-- 主标题和副标题 -->
         <h3>
-          {{ props.title }}<small>{{ props.subTitle }}</small>
+          {{ title }}<small>{{ subTitle }}</small>
         </h3>
       </div>
       <!-- 主体内容区域 -->

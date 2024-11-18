@@ -1,21 +1,19 @@
 <script setup>
-import { useCategoryStore } from "@/stores/categoryStore";
+import { useCategoryStore } from '@/stores/categoryStore';
+import HeaderCart from './HeaderCart.vue';
 
-const category = useCategoryStore()
+const categoryStore = useCategoryStore()
 
 </script>
 
 <template>
-  <header class="app-header">
+  <header class='app-header'>
     <div class="container">
       <h1 class="logo">
-        <RouterLink to="/">小兔子</RouterLink>
+        <RouterLink to="/">小兔鲜</RouterLink>
       </h1>
       <ul class="app-header-nav">
-        <li class="home">
-          <RouterLink to="/">首页</RouterLink>
-        </li>
-        <li class="home" v-for="item in category.categoryList" :key="item.id">
+        <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
           <RouterLink active-class="active" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
         </li>
 
@@ -25,12 +23,13 @@ const category = useCategoryStore()
         <input type="text" placeholder="搜一搜">
       </div>
       <!-- 头部购物车 -->
-      <!-- <HeaderCart></HeaderCart> -->
+      <HeaderCart />
     </div>
   </header>
 </template>
 
-<style scoped lang="scss">
+
+<style scoped lang='scss'>
 .app-header {
   background: #fff;
 
@@ -47,7 +46,7 @@ const category = useCategoryStore()
       height: 132px;
       width: 100%;
       text-indent: -9999px;
-      background: url('@/assets/images/logo.png') no-repeat 0px / contain;
+      background: url('@/assets/images/logo.png') no-repeat center 18px / contain;
     }
   }
 
@@ -87,6 +86,7 @@ const category = useCategoryStore()
     height: 32px;
     position: relative;
     border-bottom: 1px solid #e7e7e7;
+    line-height: 32px;
 
     .icon-search {
       font-size: 18px;

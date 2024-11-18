@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
   <footer class="app_footer">
     <!-- 联系我们 -->
@@ -5,17 +9,17 @@
       <div class="container">
         <dl>
           <dt>客户服务</dt>
-          <dd><i class="iconfont icon-kefu"></i>在线客服</dd>
-          <dd><i class="iconfont icon-question"></i>问题反馈</dd>
+          <dd><i class="iconfont icon-kefu"></i> 在线客服</dd>
+          <dd><i class="iconfont icon-question"></i> 问题反馈</dd>
         </dl>
         <dl>
           <dt>关注我们</dt>
-          <dd><i class="iconfont icon-weixin"></i>公众号</dd>
-          <dd><i class="iconfont icon-weibo"></i>微博</dd>
+          <dd><i class="iconfont icon-weixin"></i> 公众号</dd>
+          <dd><i class="iconfont icon-weibo"></i> 微博</dd>
         </dl>
         <dl>
           <dt>下载APP</dt>
-          <dd class="qrcode"><img src="@/assets/images/qrcode.jpg"></dd>
+          <dd class="qrcode"><img src="@/assets/images/qrcode.jpg" /></dd>
           <dd class="download">
             <span>扫描二维码</span>
             <span>立马下载APP</span>
@@ -28,7 +32,7 @@
         </dl>
       </div>
     </div>
-    <!-- 其他 -->
+    <!-- 其它 -->
     <div class="extra">
       <div class="container">
         <div class="slogan">
@@ -56,13 +60,14 @@
             <a href="javascript:;">搜索推荐</a>
             <a href="javascript:;">友情链接</a>
           </p>
-          <p>CopyRight © 小兔子</p>
+          <p>CopyRight © 小兔鲜儿</p>
         </div>
       </div>
     </div>
   </footer>
 </template>
-<style scoped lang="scss">
+
+<style scoped lang='scss'>
 .app_footer {
   overflow: hidden;
   background-color: #f5f5f5;
@@ -88,8 +93,8 @@
       }
 
       &:last-child {
-        padding-right: 0;
         border-right: none;
+        padding-right: 0;
       }
     }
 
@@ -170,55 +175,56 @@
 
   .extra {
     background-color: #333;
+  }
 
-    .slogan {
-      height: 178px;
+  .slogan {
+    height: 178px;
+    line-height: 58px;
+    padding: 60px 100px;
+    border-bottom: 1px solid #434343;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      height: 58px;
       line-height: 58px;
-      padding: 60px 100px;
-      border-bottom: 1px solid #434343;
-      display: flex;
-      justify-content: space-between;
+      color: #fff;
+      font-size: 28px;
 
-      a {
-        height: 58px;
-        line-height: 58px;
-        color: #fff;
+      i {
+        font-size: 50px;
+        vertical-align: middle;
+        margin-right: 10px;
+        font-weight: 100;
+      }
 
-        i {
-          font-size: 50px;
-          vertical-align: middle;
-          margin-right: 10px;
-          font-weight: 100;
-        }
-
-        span {
-          vertical-align: middle;
-          text-shadow: 0 0 1px #333;
-        }
+      span {
+        vertical-align: middle;
+        text-shadow: 0 0 1px #333;
       }
     }
+  }
 
-    .copyright {
-      height: 170px;
-      padding-top: 40px;
-      text-align: center;
+  .copyright {
+    height: 170px;
+    padding-top: 40px;
+    text-align: center;
+    color: #999;
+    font-size: 15px;
+
+    p {
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    a {
       color: #999;
-      font-size: 15px;
+      line-height: 1;
+      padding: 0 10px;
+      border-right: 1px solid #999;
 
-      p {
-        line-height: 1;
-        margin-bottom: 20px;
-      }
-
-      a {
-        color: #999;
-        line-height: 1;
-        padding: 0 10px;
-        border-right: 1px solid #999;
-
-        &:last-child {
-          border-right: none;
-        }
+      &:last-child {
+        border-right: none;
       }
     }
   }
